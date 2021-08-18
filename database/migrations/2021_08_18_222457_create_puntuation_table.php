@@ -15,6 +15,9 @@ class CreatePuntuationTable extends Migration
     {
         Schema::create('puntuation', function (Blueprint $table) {
             $table->id();
+            $table->string('puntuation');
+            $table->string('description');
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }

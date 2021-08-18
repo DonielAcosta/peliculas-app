@@ -15,6 +15,12 @@ class CreateSeriesTable extends Migration
     {
         Schema::create('series', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('description');
+            $table->date('year');
+            $table->foreignId('director_id')->constrained();
+            $table->foreignId('punt_id')->constrained();
+            $table->foreignId('seasons_id')->constrained();
             $table->timestamps();
         });
     }

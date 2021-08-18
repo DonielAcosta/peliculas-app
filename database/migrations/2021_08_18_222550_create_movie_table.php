@@ -15,6 +15,11 @@ class CreateMovieTable extends Migration
     {
         Schema::create('movie', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('description');
+            $table->date('year');
+            $table->foreignId('director_id')->constrained();
+            $table->foreignId('punt_id')->constrained();
             $table->timestamps();
         });
     }
