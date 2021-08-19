@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\UsersDatas;
 
 class User extends Authenticatable
 {
@@ -18,7 +19,6 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name',
         'email',
         'password',
     ];
@@ -41,4 +41,20 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+      /**
+     * Function to get UserDatas
+     */
+    public function UsersDatas()
+    {
+        return $this->hasOne(UserData::class,'users_id');
+    }
+
+    /**
+     * Function to get Users of favorites
+    */
+    public function Favorites(){
+        
+        return $this->belongsToMany(InstallationOrders::class, 'favorites', 'users_id','favorites_id');
+    }
 }
