@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePuntuationTable extends Migration
+class CreateSexUsersDatasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreatePuntuationTable extends Migration
      */
     public function up()
     {
-        Schema::create('puntuation', function (Blueprint $table) {
+        Schema::create('sex_users_datas', function (Blueprint $table) {
             $table->id();
-            $table->string('puntuation');
-            $table->string('description');
-            $table->foreignId('user_id')->constrained();
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ class CreatePuntuationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('puntuation');
+        Schema::dropIfExists('sex_users_datas');
     }
 }
