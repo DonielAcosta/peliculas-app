@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Directores;
 use App\Models\Scores;
+use App\Models\Users;
 
 class Movies extends Model
 {
@@ -41,8 +42,14 @@ class Movies extends Model
     /**
      * Function to get Movies of favorites
     */
-    public function Favorites(){
+    public function favorites(){
         
-        return $this->belongsToMany(InstallationOrders::class, 'favorites','favorites_id','users_id');
+        return $this->belongsToMany(Users::class, 'favorites','movies_id','users_id');
     }
+
+    // public function Favorites(){
+        
+    //     return $this->belongsToMany(Movies::class, 'favorites', 'movies_id','users_id');
+    // }
+
 }

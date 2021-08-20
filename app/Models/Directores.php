@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Series;
 use App\Models\Movies;
 
-class Directores extends Model
-{
+class Directores extends Model{
+
     use HasFactory;
 
 
@@ -20,7 +20,7 @@ class Directores extends Model
     protected $fillable = [
         'name',
         'lastname',
-        'dascription',
+        'description',
     ];
 
     /**

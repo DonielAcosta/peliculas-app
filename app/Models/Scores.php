@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Series;
 use App\Models\Movies;
+use App\Models\Users;
 
-class Scores extends Model
-{
+class Scores extends Model{
     use HasFactory;
 
 
@@ -19,9 +19,9 @@ class Scores extends Model
 	 * @var array
 	*/
     protected $fillable = [
-        'name',
-        'lastname',
-        'dascription',
+        'puntuation',
+        'users_id',
+        'description',
     ];
 
     /**
@@ -29,7 +29,7 @@ class Scores extends Model
     */
     public function Series(){
 
-        return $this->hasMany(Series::class,'Scores_id');
+        return $this->hasMany(Series::class,'scores_id');
     }
 
     /**
@@ -37,6 +37,14 @@ class Scores extends Model
     */
     public function Movies(){
 
-        return $this->hasMany(Movies::class,'Scores_id');
+        return $this->hasMany(Movies::class,'scores_id');
+    }
+
+    /**
+     * Function to get Scores of users
+    */
+    public function Users(){
+
+        return $this->belongsTo(Users::class,'scores_id');
     }
 }

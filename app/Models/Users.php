@@ -5,12 +5,16 @@ namespace App\Models;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\UsersDatas;
+use App\Models\Movies;
+use App\Models\Scores;
 
-class User extends Authenticatable
-{
+
+class Users extends Model{
+    
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
@@ -47,7 +51,7 @@ class User extends Authenticatable
      */
     public function UsersDatas()
     {
-        return $this->hasOne(UserData::class,'users_id');
+        return $this->hasOne(UsersDatas::class,'users_id');
     }
 
     /**
@@ -55,6 +59,15 @@ class User extends Authenticatable
     */
     public function Favorites(){
         
-        return $this->belongsToMany(InstallationOrders::class, 'favorites', 'users_id','favorites_id');
+        return $this->belongsToMany(Movies::class, 'favorites', 'movies_id','users_id');
+    }
+
+  
+    /**
+     * Function to get Scores of Movies
+    */
+    public function Scores(){
+
+        return $this->hasMany(Scores::class,'users_id');
     }
 }

@@ -1,8 +1,8 @@
 <?php
 
 namespace Database\Seeders;
-
 use Illuminate\Database\Seeder;
+use App\Models\SexUsersDatas;
 
 class SexUsersDatasSeeder extends Seeder
 {
@@ -13,6 +13,12 @@ class SexUsersDatasSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $sex = new SexUsersDatas();
+        $sex->name = 'Maculino';
+        $sex->save();
+
+        $sex = new SexUsersDatas();
+        $sex->name = 'Femenino';
+        $sex->save();
     }
 }
