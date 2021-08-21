@@ -70,7 +70,7 @@ class UsersController extends Controller{
         //     'email' => $form->email,
         //     'password' => Hash::make($form->password)
         // ]);
-        // $date = new Carbon($form->date_of_birth); 
+
         // $usersDatas = UsersDatas::create([
         //     'users_id' => $user->id,
         //     'sex_users_datas_id' => $form->sex_users_datas_id,

@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Cache;
 use App\Http\Controllers\SexUsersDatasController;
 use App\Http\Controllers\UsersDatasController;
 use App\Http\Controllers\UsersController;
@@ -10,6 +12,7 @@ use App\Http\Controllers\MoviesController;
 use App\Http\Controllers\SeasonsController;
 use App\Http\Controllers\ScoresController;
 use App\Http\Controllers\SeriesController;
+use App\Http\Controllers\ApiController;
 
 
 /*
@@ -36,7 +39,7 @@ Route::resource('sex_users_datas', SexUsersDatasController::class);
 Route::resource('users_datas', UsersDatasController::class);
 
 Route::post('usersstore', [UsersController::class, 'store']);
-// Route::get('users', [UsersController::class, 'index']);
+Route::get('apidata/{title}/{year}', [ApiController::class, 'ApiData']);
 // Route::put('users', [UsersController::class, 'update']);
 // Route::get('users_show', [UserController::class, 'show']);
 // Route::delete('users', [UserController::class, 'destroy']);

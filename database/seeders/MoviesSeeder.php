@@ -1,7 +1,7 @@
 <?php
 
 namespace Database\Seeders;
-
+use Illuminate\Http\Controllers\ApiController;
 use Illuminate\Database\Seeder;
 use App\Models\Movies;
 use Faker\Factory as Faker;
@@ -13,7 +13,8 @@ class MoviesSeeder extends Seeder{
      * @return void
      */
     public function run(){
-        
+
+        // $api = new ApiController();
         $faker = Faker::create();
 
     	$type = new Movies();
@@ -55,5 +56,7 @@ class MoviesSeeder extends Seeder{
         $type->year = $faker->date($format = 'Y-m-d', $max = 'now');
         $type->description = $faker->text(30);
         $type->save();
+
+            
     }
 }

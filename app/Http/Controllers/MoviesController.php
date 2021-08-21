@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Controllers\ApiController;
 use App\Models\Directores;
 use App\Models\Series;
 use App\Models\Scores;
 use App\Models\Movies;
+use GuzzleHttp\Client;
 use Validator;
 
 class MoviesController extends Controller{
@@ -68,6 +70,11 @@ class MoviesController extends Controller{
             return response()
                 ->json(['error' => $validator->errors()], 422);
         }
+        
+        // $datapi =new Apidata(); 
+        // $datapi=$data =[];
+        // for()
+
         $arr = [
             'name' => $request->input('name'),
             'description' => $request->input('description'),
@@ -75,6 +82,7 @@ class MoviesController extends Controller{
             'scores_id' => $request->get('scores_id'),
             'directores_id' => $request->get('directores_id'),
         ];
+
         $movies = Movies::create($arr);
         return response()->json(
             [
@@ -135,8 +143,8 @@ class MoviesController extends Controller{
     }
 
 
-    public function destroy($id)
-    {
+    public function destroy($id){
+
         $movies = Movies::findorFail($id);
         $movies->delete();
         return response()->json([
@@ -144,4 +152,6 @@ class MoviesController extends Controller{
             'message' => 'Elemento eliminado exitosamente',
         ], 200);
     }
+
+
 }
