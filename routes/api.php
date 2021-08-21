@@ -13,6 +13,7 @@ use App\Http\Controllers\SeasonsController;
 use App\Http\Controllers\ScoresController;
 use App\Http\Controllers\SeriesController;
 use App\Http\Controllers\ApiController;
+use App\Http\Controllers\TestQueueEmailsController;
 
 
 /*
@@ -28,6 +29,9 @@ use App\Http\Controllers\ApiController;
 
 // Route::post('register', 'App\Http\Controllers\AuthController@signUp');
 // Route::post('login', 'App\Http\Controllers\AuthController@auth');
+
+
+Route::get('sending-queue-emails', [TestQueueEmailsController::class,'sendTestEmails']);
 
 Route::resource('directores', DirectoresController::class);
 Route::resource('movies', MoviesController::class);

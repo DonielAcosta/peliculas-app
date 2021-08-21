@@ -63,3 +63,37 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 # peliculas-app
+
+## Instalación
+
+#### 1. Instalamos dependencias para PHP
+
+        composer install
+
+#### 2. Instalamos dependencias para Javascript
+
+        npm install
+
+        php artisan jwt:secret
+
+
+
+#### 3. Reemplzamos en el archivo .env con nuestras credenciales de base de datos
+
+    DB_CONNECTION=mysql
+    DB_HOST=<ip_server>
+    DB_PORT=3306
+    DB_DATABASE=<name_db>
+    DB_USERNAME=<user_db>
+    DB_PASSWORD=<password_db>
+
+#### 4. Ejecutamos la migración de Laravel con seeders
+
+        php artisan migrate:fresh --seed
+
+## Ejecución
+
+### Inicializamos el servidor
+
+        php artisan serve
+     
